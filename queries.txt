@@ -1,0 +1,24 @@
+QUERY 1:
+db.edicoes.countDocuments()
+
+QUERY 2:
+db.edicoes.countDocuments({ vencedor: "Ireland" })
+
+QUERY 3:
+db.edicoes.aggregate([
+  { $unwind: "$musicas" },                   
+  { $group: { _id: "$musicas.interprete" } },   
+  { $sort: { _id: 1 } }                         
+])
+
+QUERY 4:
+db.edicoes.aggregate([
+  { $project: { _id: 1, numeroMusicas: { $size: "$musicas" } } }
+])
+
+QUERY 5:
+db.edicoes.aggregate([
+  { $group: { _id: "$vencedor", numVitorias: { $sum: 1 } } },
+  { $sort: { numVitorias: -1 } }
+])
+

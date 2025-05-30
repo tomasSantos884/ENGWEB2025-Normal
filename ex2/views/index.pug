@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title Edições Eurovisão
+    link(rel="stylesheet", href="/stylesheets/style.css")
+  body
+    h1 Lista de Edições
+    table.w3-table-all
+      thead
+        tr.w3-blue
+          th ID
+          th Ano
+          th Organização
+          th Vencedor
+      tbody
+        each edicao in edicoes
+          tr
+            td: a(href='/' + edicao._id)= edicao._id
+            td= edicao.anoEdicao
+            td: a(href='/paises/' + edicao.organizacao)= edicao.organizacao
+            td: a(href='/paises/' + edicao.vencedor)= edicao.vencedor

@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    title= pais
+    link(rel="stylesheet", href="/stylesheets/style.css")
+  body(class="w3-container")
+    h1(class="w3-center w3-margin-top") País: #{pais}
+
+    h2(class="w3-margin-top") Participações
+    table(class="w3-table-all w3-hoverable w3-margin-top")
+      thead
+        tr.w3-blue
+          th Edição
+          th Ano
+          th Música
+          th Intérprete
+          th Venceu?
+      tbody
+        each part in participacoes
+          tr
+            td: a(href='/' + part.idEdicao)= part.idEdicao
+            td= part.ano
+            td= part.musica
+            td= part.interprete
+            td= part.venceu
+
+    h2(class="w3-margin-top") Organizações
+    table(class="w3-table-all w3-hoverable w3-margin-top")
+      thead
+        tr.w3-blue
+          th Edição
+          th Ano
+      tbody
+        each org in organizacoes
+          tr
+            td: a(href='/' + org.idEdicao)= org.idEdicao
+            td= org.ano
+
+    br
+    a(href='/', class='w3-button w3-blue w3-margin-top') Voltar à lista de edições

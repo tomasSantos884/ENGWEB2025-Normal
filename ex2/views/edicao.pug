@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    title= edicao._id
+    link(rel="stylesheet", href="/stylesheets/style.css")
+  body(class="w3-container")
+    h1(class="w3-center w3-margin-top") Edição #{edicao._id}
+    
+    ul.w3-ul.w3-card-4.w3-margin
+      li
+        strong Ano: 
+        | #{edicao.anoEdicao}
+      li
+        strong Organização: 
+        a(href='/paises/' + edicao.organizacao)= edicao.organizacao
+      li
+        strong Vencedor: 
+        if edicao.vencedor
+          a(href='/paises/' + edicao.vencedor)= edicao.vencedor
+        else
+          | Sem vencedor
+
+    h2(class="w3-center w3-margin-top") Músicas
+    table(class="w3-table-all w3-hoverable w3-margin-top")
+      thead
+        tr.w3-blue
+          th Título
+          th Intérprete
+          th País
+      tbody
+        each musica in edicao.musicas
+          tr
+            td= musica.titulo
+            td= musica.interprete
+            td: a(href='/paises/' + encodeURIComponent(musica.pais))= musica.pais
+
+    br
+    a(href='/', class='w3-button w3-blue w3-margin-top') Voltar à lista de edições
