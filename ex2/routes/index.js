@@ -28,13 +28,10 @@ router.get('/paises/:idPais', (req, res) => {
       const edicoes = response.data;
 
       const participacoes = [];
-      console.log(edicoes);
 
       edicoes.forEach(ed => {
-        console.log(ed._id, ed.musicas);
         if (Array.isArray(ed.musicas)) { 
           ed.musicas.forEach(musica => {
-            console.log(musica);
             if (musica.pais === idPais) {
               participacoes.push({
                 idEdicao: ed._id,
