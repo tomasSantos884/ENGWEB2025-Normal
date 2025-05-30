@@ -1,0 +1,29 @@
+# Node modules
+node_modules/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# MongoDB dump files
+dump/
+*.lock
+
+# Vscode config (opcional)
+.vscode/
+
+# Coverage reports (caso uses testes)
+coverage/
+
+# Others
+dist/
+build/
+
